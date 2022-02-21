@@ -14,7 +14,6 @@ from django.contrib.auth import get_user_model
 class CreateBlogView(LoginRequiredMixin, CreateView):
     template_name = 'blog_create.html'
     form_class = CreateBlogForm
-    # success_url = reverse_lazy('Blog:blog_list')
 
     def post(self, request, *args, **kwargs):
         # formのactionでusernameを取ろうとするとなぜかフォームがDBに追加されないので、POSTが送信されたらフォームをセーブするようにしている
