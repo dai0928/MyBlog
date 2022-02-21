@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+  <a href="{% url 'accounts:home' %}" class="back"><span>⇐</span></a>
+  <h3 class="account_title">Log in</h3>
+
+  <form method="post">
+      {% csrf_token %}
+      <p class="login_text">メールアドレス</p>
+      {{ form.username}}
+      <p class="login_text">パスワード</p>
+      {{ form.password}}
+      <input type="submit" value="login" class="btn_submit">
+      {% if form.errors %}
+      <div class="errorlist">
+          {% for errors in form.errors.values %}
+              {% for error in errors %}
+                  {{ error }}<br>
+              {% endfor %}
+          {% endfor %}
+      </div>
+      {% endif %}
+
+  </form>
+
+{% endblock %}

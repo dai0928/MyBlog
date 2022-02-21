@@ -1,0 +1,22 @@
+{% extends "blog_base/blog_base.html" %}
+
+{% block title %}Update_{{ createblogmodel.blog_title}} {% endblock %}
+
+{% block content %}
+
+
+    <h1 class="upload_blog_title">BLOG-UPDATE</h1>
+
+    <div class="form_center">
+        <form method="post" action="">
+            {% csrf_token %}
+            <h2 class="blog_title">ブログタイトル</h2>
+                {{ form.blog_title }}
+            <h2 class="blog_text">ブログの内容</h2>
+                {{ form.text }}
+            <button type="submit" class="update_btn">UPDATE ➡</button>
+        </form>
+    </div>
+
+
+{% endblock %}

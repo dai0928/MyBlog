@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% load i18n static %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+    
+    <h2 class="btn_text">初めて利用される方:</h2>
+    <a class="btn" href="{% url 'accounts:create' %}">Sign_Up</a>
+    <h2 class="btn_text">既にアカウントを持っている方:</h2>
+    <a class="btn" href="{% url 'accounts:login' %}">Sign_In</a>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "blog_base/blog_base.html" %}
+{% load i18n static %}
+
+{% block title %}{{ user.username }}'s_blog{% endblock %}
+
+{% block content %}
+    <h1 class="upload_blog_title">MY-BLOG-LIST</h1>
+    <div class="blog_list_board">
+        {% for item in object_list %}
+        <!-- DBにあるCreateBlogModelを全て取得 -->
+            {% if user.username == item.user %}
+            <!-- DBに登録されているCreateBlogModel.userとログイン中のusernameが一致するもののみを取得 -->
+                <a class="my_blog" href="{% url 'Blog:blog_detail' item.pk %}">
+                    作成日：{{ item.created_date }}<br>
+                    title：{{ item.blog_title }}<br>
+                    更新日：{{ item.updated_date }}
+                </a><br>
+            {% endif %} 
+
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "blog_base/blog_base.html" %}
+
+{% block title %}create_blog{% endblock %}
+
+{% block content %}
+
+    <h1 class="upload_blog_title">BLOG-UPLOAD</h1>
+    <div class="form_center">
+        <form method="post" action="">
+            {% csrf_token %}
+            <h2 class="blog_title">ブログタイトル</h2>
+                {{ form.blog_title }}
+            <h2 class="blog_text">ブログの内容</h2>
+                {{ form.text }}
+                <input class="post_user" type="text" name="{{ form.user.name }}" value="{{ user.username }}">
+                <!-- nameでモデルを参照、valueでどのユーザーが投稿したかを参照 -->
+            <button type="submit" class="up_btn">UPLOAD ➡</button>
+        </form>
+    </div>
+    </body>
+    </html>
+
+{% endblock %}

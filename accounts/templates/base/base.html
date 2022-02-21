@@ -1,0 +1,17 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title> 
+        <link rel="stylesheet" href="{% static 'cms/account.css'%}" type="text/css">
+
+    </head>
+    <body>
+        <h1 class="title">HELLO-BROG</h1>
+        <div class="back_base">
+            {% block content %}
+                no content
+            {% endblock %}
+        </div>
+    </body>

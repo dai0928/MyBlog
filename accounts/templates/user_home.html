@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}{{ user.username }}さんのホーム{% endblock %}
+
+{% block content %}
+
+
+    <h1>ようこそ！ {{ user.username }} さん！</h1>
+    
+    <a href="{% url 'Blog:blog_list' user.username %}" class="btn_start">ブログを閲覧</a>
+    <a href="{% url 'Blog:create_blog' user.username %}" class="btn_start">ブログを投稿</a>
+    <a href="{% url 'accounts:logout' %}" class="btn_out">Sign_Out</a>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "blog_base/blog_base.html" %}
+
+{% block title %}{{ createblogmodel.blog_title }}{% endblock %}
+
+{% block content %}
+
+
+    <div class="blog_detail">
+        <h1 class="blog_detail_title"> {{ createblogmodel.blog_title}} </h1>
+        <p class="blog_detail_text"> {{ createblogmodel.text}} </p>
+    </div>
+    <div class="blog_detail_btn">
+        <a href="{% url 'Blog:blog_update' createblogmodel.pk %}" class="detail_update_btn">BLOG-UPDATE</a>
+        <a href="{% url 'Blog:blog_delete' createblogmodel.pk %}" class="detail_delete_btn">BLOG-DELETE</a>
+    </div>
+{% endblock %}

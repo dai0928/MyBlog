@@ -1,0 +1,22 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title> 
+        <link rel="stylesheet" href="{% static 'cms/blog.css'%}" type="text/css">
+
+    </head>
+    <body>
+        
+        <header class="blog_head">   
+            <p class="header_top_text">HELLO-BLOG---{{user.username}}</p>
+            <a href="{% url 'accounts:user_home' %}" class="header_top_link"><span>HOME</span></a>
+            <a href="{% url 'Blog:blog_list' user.username %}" class="header_top_link">BLOG-LIST</a>
+            <a href="{% url 'Blog:create_blog' user.username %}" class="header_top_link">UPLOAD</a>
+            <a href="{% url 'accounts:logout' %}" class="header_top_link">SIGN-OUT</a>
+        </header>
+            {% block content %}
+                no content
+            {% endblock %}
+    </body>
